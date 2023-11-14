@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container mt-0">
+    
+        <img src="/img/logo.png" alt="uvm" class="logo">
+        <br>
+        <div class="row justify-content-between">
+    
+          <h3>Nombre: Luis Angel López</h3>
+
+          <button class="btn l-salir" title="Salir" id="salir">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+              <path d="M7 12h14l-3 -3m0 6l3 -3" />
+            </svg>
+          </button>
+
+        </div>
+        <br>
+        
+        <div class="row justify-content-between">
+    
+        <h3>Familiares:</h3>
+        <div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#svv">
+                Agregar
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="svv" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                                <h5 class="modal-title">Nuevo registro</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <label>Nombre</label>
+                                    <input type="text" class="form-control" id="nmbre" placeholder="Nombre">
+                                        <br>
+                                    <label>Edad</label>
+                                    <input type="number" class="form-control" id="edd" placeholder="Edad">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cln">Cerrar</button>
+                            <button type="button" class="btn btn-success" id="guardar">Guardar</button>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+          </div>
+          
+        </div>
+        <hr>
+        <table class="table text-center">
+          <thead class="thead-dark">
+              <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Accion</th>
+              </tr>
+          </thead>
+          <tbody id="tbl">
+
+          </tbody>
+        </table>
+    
+      </div>
+
+    <!-- Editar -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Editar</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+              <div class="modal-body">
+                  <div class="container-fluid">
+                      <div>
+                      <div class="div-group">
+                          <label for="text">Nombre</label>
+                          <input type="text" class="form-control" placeholder="Nombre" value="" id="nb">
+                      </div>
+                      <div class="form-group">
+                          <label for="number">Edad</label>
+                          <input type="number" class="form-control" placeholder="Edad" value="" id="ed">
+                      </div>
+                      </div> 
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="refrsh">Cancelar</button>
+                  <button type="button" class="btn btn-warning" id="actz">Actualizar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Eliminar -->
+  <div class="modal fade" id="dlete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="container-fluid">
+
+                    <p>¿Está seguro que desea eliminar el registro seleccionado?</p>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="refrsh">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="dlte">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <input type="hidden" id="almacenarid" value="0" />
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <script src="js/app.js"></script>
+  </body>
+  </html>
+

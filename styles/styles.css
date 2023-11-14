@@ -1,0 +1,33 @@
+#usuarios{
+    background-image: url(/img/uvm.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.centrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+  
+.form {
+    width: 15rem;
+}
+
+.bg-sesion{
+    background-color: silver;
+}
+
+.logo{
+    width: 25rem;
+}
+
+.l-salir{
+    background-color: #25CBAB;
+    border-radius: 10rem;
+}
+.ssid{
+    /* font-weight: bold; */
+    color: rgb(147, 147, 147)
+}
